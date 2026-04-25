@@ -18,8 +18,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
         with:
-          aws-access-key-id: ${{ secrets.AKIA2GMQD4YRYDQKZPBL }}
-          aws-secret-access-key: ${{ secrets.is92up8Kd/0niypbl7q5oHZZxlv3JzWuXenCWcL3 }}
+          aws-access-key-id: ${{ secrets.AWS_SECRET_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
           aws-region: ap-south-1
 
       # Step 3: Login to ECR
@@ -34,8 +34,8 @@ jobs:
 
       # Step 5: Tag image
       - name: Tag Docker image
-        run: docker tag cloudcamp-app:latest 123456789012.dkr.ecr.ap-south-1.amazonaws.com/my-repo:latest
+        run: docker tag cloudcamp-app:latest 700918785571.dkr.ecr.ap-south-1.amazonaws.com/cloudmap/app:latest
 
       # Step 6: Push image to ECR
       - name: Push to ECR
-        run: docker push 123456789012.dkr.ecr.ap-south-1.amazonaws.com/my-repo:latest
+        run: docker push cloudcamp-app:latest 700918785571.dkr.ecr.ap-south-1.amazonaws.com/cloudmap/app:latest
